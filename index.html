@@ -188,12 +188,19 @@
     const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
     let playing = false;
 
+    // In pixels of the layer's own size, which the phone turning upright doesn't change.
     const moveTo = pin => {
-      finger.style.setProperty('--x', pin.style.getPropertyValue('--x'));
-      finger.style.setProperty('--y', pin.style.getPropertyValue('--y'));
+      const x = parseFloat(pin.style.getPropertyValue('--x')) / 100 * swipe.offsetWidth;
+      const y = parseFloat(pin.style.getPropertyValue('--y')) / 100 * swipe.offsetHeight;
+
+      finger.style.setProperty('--px', `${x}px`);
+      finger.style.setProperty('--py', `${y}px`);
     };
 
     const play = async () => {
+      // The sweep waits for the phone to be set upright, so the two never move at once.
+      await wait(1100);
+
       while (playing) {
         moveTo(pins(path[0]));
         await wait(300);
@@ -219,12 +226,17 @@
       }
     };
 
-    new IntersectionObserver(([entry]) => {
-      const wasPlaying = playing;
+    // One loop at a time: scrolling away and back while a loop still waits doesn't start a second.
+    let looping = false;
 
+    new IntersectionObserver(async ([entry]) => {
       playing = entry.isIntersecting;
 
-      if (playing && !wasPlaying) play();
+      if (!playing || looping) return;
+
+      looping = true;
+      await play();
+      looping = false;
     }, { threshold: 0.5 }).observe(swipe);
   })();
 

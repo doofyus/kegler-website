@@ -261,6 +261,7 @@ h3 { font-size: 17px; margin: 0 0 4px; }
   --pin-down: #DCCDB8;
   --pin-number: #9C8B78;
   --touch: rgba(58, 46, 36, 0.2);
+  --touch-ring: rgba(58, 46, 36, 0.1);
   --record: #985030;
   position: absolute;
   inset: var(--frame);
@@ -269,6 +270,8 @@ h3 { font-size: 17px; margin: 0 0 4px; }
   pointer-events: none;
   container-type: size;
   display: none;
+  /* Its own layer, so its changes are drawn apart from the screenshot under it. */
+  transform: translateZ(0);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -277,6 +280,7 @@ h3 { font-size: 17px; margin: 0 0 4px; }
     --pin-down: #3A2F25;
     --pin-number: #8A7864;
     --touch: rgba(255, 248, 238, 0.28);
+    --touch-ring: rgba(255, 248, 238, 0.12);
     --record: #B05C3C;
   }
 }
@@ -356,18 +360,20 @@ h3 { font-size: 17px; margin: 0 0 4px; }
   transition: opacity 0.2s;
 }
 
+/* Moved with a transform, not left and top, and ringed with a gradient, not a shadow: Safari
+   leaves trails of a shadowed element moved by layout inside a turning phone. */
 .swipe .finger {
   position: absolute;
-  left: var(--x, 50%);
-  top: var(--y, 62%);
-  width: 10cqw;
+  left: 0;
+  top: 0;
+  width: 13cqw;
   aspect-ratio: 1;
-  translate: -50% -50%;
   border-radius: 50%;
-  background: var(--touch);
-  box-shadow: 0 0 0 1.4cqw var(--touch);
+  background: radial-gradient(circle, var(--touch) 0 60%, var(--touch-ring) 61% 100%);
+  transform: translate(var(--px, 0px), var(--py, 0px)) translate(-50%, -50%);
   opacity: 0;
-  transition: left 0.16s linear, top 0.16s linear, opacity 0.2s;
+  will-change: transform, opacity;
+  transition: transform 0.16s linear, opacity 0.2s;
 }
 
 .swipe .on { opacity: 1; }
