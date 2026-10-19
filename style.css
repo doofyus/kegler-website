@@ -5,6 +5,9 @@
   --ink: #3A2E24;
   --muted: #75614D;
   --accent: #985030;
+  --accent-wash: rgba(152, 80, 48, 0.12);
+  --chip: #3A2E24;
+  --chip-ink: #F7F1E8;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,6 +18,9 @@
     --ink: #F1E8DB;
     --muted: #A8957F;
     --accent: #D07A52;
+    --accent-wash: rgba(208, 122, 82, 0.16);
+    --chip: #F1E8DB;
+    --chip-ink: #1E1914;
   }
 }
 
@@ -24,38 +30,244 @@ body {
   margin: 0;
   background: var(--canvas);
   color: var(--ink);
-  font: 17px/1.55 -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font: 17px/1.5 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 main {
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto;
-  padding: 48px 20px 64px;
+  padding: 32px 16px 56px;
 }
 
-header { margin-bottom: 32px; }
-
-.brand {
-  color: var(--accent);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 13px;
-  text-decoration: none;
-}
-
-h1 { font-size: 34px; line-height: 1.15; margin: 8px 0 4px; }
-h2 { font-size: 20px; margin: 32px 0 8px; }
-p, li { color: var(--ink); }
-.muted { color: var(--muted); font-size: 15px; }
 a { color: var(--accent); }
+
+/* The top bar: the icon and the name, back to the home page. */
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 600;
+  margin-bottom: 36px;
+}
+
+.bar img { width: 32px; height: 32px; border-radius: 8px; }
+
+.overline {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0;
+}
+
+h1 {
+  font-size: 40px;
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 6px 0 10px;
+}
+
+.lead { font-size: 19px; color: var(--muted); margin: 0 0 28px; }
+
+h2 { font-size: 22px; margin: 40px 0 12px; }
 
 .card {
   background: var(--surface);
-  border-radius: 16px;
-  padding: 16px 20px;
-  margin: 16px 0;
+  border-radius: 20px;
+  padding: 18px 20px;
+  margin: 12px 0;
 }
 
-nav { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--line); }
-nav a { margin-right: 20px; }
+.card h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 17px;
+  margin: 0 0 6px;
+}
+
+.card p { margin: 0; color: var(--muted); }
+.card p + p { margin-top: 8px; }
+
+/* Tiles in a grid: one fact each, with its icon. */
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin: 12px 0 8px;
+}
+
+.tile {
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 16px;
+}
+
+.tile strong { display: block; margin-top: 10px; font-size: 16px; }
+.tile span { display: block; color: var(--muted); font-size: 14px; line-height: 1.4; margin-top: 2px; }
+
+.icon {
+  width: 28px;
+  height: 28px;
+  flex: none;
+  border-radius: 8px;
+  background: var(--accent-wash);
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon svg { width: 17px; height: 17px; }
+
+.button {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 13px 26px;
+  margin-top: 14px;
+}
+
+/* A sample of the app: the average card and a night's games. */
+.sample {
+  background: var(--surface);
+  border-radius: 24px;
+  padding: 20px;
+  margin: 8px 0 12px;
+}
+
+.sample .figure { font-size: 56px; font-weight: 200; line-height: 1; margin: 6px 0 4px; }
+.sample .up { color: var(--accent); font-size: 14px; }
+.sample svg { display: block; width: 100%; height: 56px; margin: 12px 0 14px; }
+
+.chips { display: flex; gap: 6px; flex-wrap: wrap; }
+
+.chip {
+  border-radius: 999px;
+  padding: 4px 12px;
+  background: var(--canvas);
+  color: var(--muted);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.chip.best { background: var(--chip); color: var(--chip-ink); }
+
+.badge {
+  border-radius: 999px;
+  padding: 3px 10px;
+  background: var(--accent-wash);
+  font-size: 12px;
+  align-self: center;
+}
+
+/* Questions that open, like the app's cards. */
+details {
+  background: var(--surface);
+  border-radius: 20px;
+  margin: 10px 0;
+  padding: 0 20px;
+}
+
+summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 16px 0;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "›"; color: var(--muted); transition: transform 0.2s; }
+details[open] summary::after { transform: rotate(90deg); }
+details p { margin: 0 0 16px; color: var(--muted); }
+
+footer {
+  margin-top: 48px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  font-size: 15px;
+}
+
+footer .muted { color: var(--muted); margin-left: auto; }
+
+/* The home page's top: the icon large, the promise, and where to get it. */
+.hero { text-align: center; padding: 24px 0 8px; }
+.hero .app-icon { width: 112px; height: 112px; border-radius: 26px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); }
+.hero h1 { font-size: 48px; margin-top: 20px; }
+.hero .lead { max-width: 520px; margin: 0 auto 20px; }
+
+.store {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 10px 18px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* The app's own screens, in a row that scrolls sideways on a phone. */
+.phones {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 28px 16px 12px;
+  margin: 0 -16px;
+}
+
+.phones figure { margin: 0; flex: 0 0 210px; scroll-snap-align: center; text-align: center; }
+
+.phones img {
+  width: 100%;
+  height: auto;
+  border-radius: 30px;
+  border: 6px solid #0d0b09;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  display: block;
+}
+
+.phones figcaption { color: var(--muted); font-size: 14px; margin-top: 10px; }
+
+@media (min-width: 640px) {
+  .phones { overflow: visible; margin: 0; padding: 28px 0 12px; }
+  .phones figure { flex: 1 1 0; min-width: 0; }
+}
+
+/* Features: an icon, a line in bold and what it means. */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 12px;
+}
+
+.features .card { margin: 0; }
+
+.price {
+  text-align: center;
+  padding: 28px 20px;
+  margin-top: 28px;
+}
+
+.price .figure { font-size: 44px; font-weight: 200; line-height: 1; margin: 8px 0; }
+
+@media (max-width: 480px) {
+  h1 { font-size: 32px; }
+  .hero h1 { font-size: 40px; }
+  footer .muted { margin-left: 0; width: 100%; }
+}

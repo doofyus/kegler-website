@@ -4,25 +4,97 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kegler: Bowling Score Log</title>
-<meta name="description" content="Kegler keeps your bowling scores, league nights and stats on your iPhone. One purchase, no subscription.">
+<meta name="description" content="Kegler keeps your bowling games, league nights and stats on your iPhone. Five nights free, then one purchase. No subscription.">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="icon.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main>
-  <header>
-    <span class="brand">Kegler</span>
-    <h1>Your bowling, kept.</h1>
-    <p class="muted">A bowling score log for iPhone.</p>
-  </header>
+  <section class="hero">
+    <img class="app-icon" src="icon.png" alt="Kegler app icon">
+    <h1>Kegler</h1>
+    <p class="lead">Your bowling, kept. Every game, every league night, and the numbers that show where your pins go.</p>
+    <span class="store">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9s-2-.9-3.3-.9C6.1 7 4.5 8 3.6 9.6c-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6s1.8-.8 3.3-.8 2 .8 3.3.8 2.2-1.3 3-2.5c1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.4zM14 5.3c.7-.9 1.2-2 1-3.3-1 .1-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.2 1.2.1 2.4-.6 3.1-1.5z"/></svg>
+      Coming soon to the App Store
+    </span>
+  </section>
 
-  <p>Kegler keeps your games ball by ball or as final scores, your league nights with their series and handicap, and the numbers that show where your pins go.</p>
+  <div class="phones">
+    <figure><img src="images/entry.jpg" width="598" height="1300" alt="Entering a ball on the pin deck"><figcaption>A ball in one tap</figcaption></figure>
+    <figure><img src="images/summary.jpg" width="598" height="1300" alt="A league night's summary"><figcaption>Every night summed up</figcaption></figure>
+    <figure><img src="images/league.jpg" width="598" height="1300" alt="A league's page with its average and handicap"><figcaption>Your leagues, week by week</figcaption></figure>
+    <figure><img src="images/stats.jpg" width="598" height="1300" alt="Stats with what to work on"><figcaption>Where your pins go</figcaption></figure>
+  </div>
 
-  <p>Your games stay yours: no account, no ads, no tracking. One purchase, no subscription.</p>
+  <h2>Built for bowling night</h2>
+  <div class="features">
+    <div class="card">
+      <h3><span class="icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="5" r="2.4"/><circle cx="12" cy="5" r="2.4"/><circle cx="19" cy="5" r="2.4"/><circle cx="8.5" cy="11.5" r="2.4"/><circle cx="15.5" cy="11.5" r="2.4"/><circle cx="12" cy="18" r="2.4"/></svg></span>Quick between turns</h3>
+      <p>Tap how many fell, or mark the pins that fell on the deck. The frames and running total fill in as you go, and any ball is fixed by tapping its frame.</p>
+    </div>
+    <div class="card">
+      <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>League nights</h3>
+      <p>Your series, handicap and league average, the lanes you were on, and how tonight compares with last week. Tournaments too, with where you finished.</p>
+    </div>
+    <div class="card">
+      <h3><span class="icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="3" y="12" width="4" height="9" rx="1.5"/><rect x="10" y="7" width="4" height="14" rx="1.5"/><rect x="17" y="3" width="4" height="18" rx="1.5"/></svg></span>Stats that point somewhere</h3>
+      <p>Not just percentages: which spares cost you, how much a better 10 pin is worth a game, and, when you mark the pins, your leaves and how often you find the pocket.</p>
+    </div>
+    <div class="card">
+      <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.4 6.8 19.2l1-5.9-4.3-4.1 5.9-.8z"/></svg></span>Nights worth remembering</h3>
+      <p>A summary after every night, your high games and series called out, and a picture of your series to share with the league.</p>
+    </div>
+    <div class="card">
+      <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="10" cy="8.5" r="1" fill="currentColor"/><circle cx="13.5" cy="8" r="1" fill="currentColor"/><circle cx="12" cy="11" r="1" fill="currentColor"/></svg></span>Your arsenal</h3>
+      <p>Note which ball you threw and see how each one strikes, on league nights and in practice.</p>
+    </div>
+    <div class="card">
+      <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M9 7h6M9 11h4"/></svg></span>On your Lock Screen</h3>
+      <p>During a league night, your game and series stay on the Lock Screen and in the Dynamic Island.</p>
+    </div>
+    <div class="card">
+      <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg></span>Bring your games</h3>
+      <p>Import from PinPal, LeagueSecretary or a spreadsheet, and export every game as CSV whenever you like.</p>
+    </div>
+    <div class="card">
+      <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .5-8 6 6 0 0 0-11.5 1A3.5 3.5 0 0 0 7 18z"/></svg></span>On all your devices</h3>
+      <p>Your games sync through your own iCloud, with no account to make.</p>
+    </div>
+  </div>
 
-  <nav>
+  <div class="card price">
+    <p class="overline">Price</p>
+    <div class="figure">5 nights free</div>
+    <p>Then one purchase unlocks Kegler for good. No subscription, Family Sharing included, and your games and stats stay yours either way.</p>
+  </div>
+
+  <h2>Your games stay yours</h2>
+  <div class="tiles">
+    <div class="tile">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span>
+      <strong>No account</strong>
+      <span>Open it and bowl.</span>
+    </div>
+    <div class="tile">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><path d="M3 3l18 18"/></svg></span>
+      <strong>No ads or tracking</strong>
+      <span>Nothing watches you bowl.</span>
+    </div>
+    <div class="tile">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span>
+      <strong>Private</strong>
+      <span>On your devices and your iCloud. <a href="privacy/">Privacy Policy</a></span>
+    </div>
+  </div>
+
+  <footer>
     <a href="support/">Support</a>
     <a href="privacy/">Privacy Policy</a>
-  </nav>
+    <a href="mailto:bowling@ratsep.org">bowling@ratsep.org</a>
+    <span class="muted">© 2026 Mikk Rätsep</span>
+  </footer>
 </main>
 </body>
 </html>
