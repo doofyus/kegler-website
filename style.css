@@ -193,6 +193,127 @@ h3 { font-size: 17px; margin: 0 0 4px; }
   box-shadow: 0 24px 48px -20px rgba(43, 35, 28, 0.45);
 }
 
+/* On the entry screen, a finger sweeps the pins that fell, the way the app is used: each pin it
+   crosses goes down, the 7-10 is left, and the record button counts them. Placed in parts of the
+   screenshot, so it fits at any size. */
+.phone { position: relative; display: block; }
+
+.swipe {
+  --pin-hole: #F7F1E8;
+  --pin-down: #DCCDB8;
+  --pin-number: #9C8B78;
+  --touch: rgba(58, 46, 36, 0.2);
+  --record: #985030;
+  position: absolute;
+  inset: 7px;
+  border-radius: 27px;
+  overflow: hidden;
+  pointer-events: none;
+  container-type: size;
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .swipe {
+    --pin-hole: #1E1914;
+    --pin-down: #3A2F25;
+    --pin-number: #8A7864;
+    --touch: rgba(255, 248, 238, 0.28);
+    --record: #B05C3C;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .js .swipe { display: block; }
+}
+
+.swipe .down {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: 14cqw;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: var(--pin-hole);
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transition: opacity 0.12s;
+}
+
+.swipe .down::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--pin-down);
+  transform: scale(0.8) rotate(var(--tilt)) translateY(3%);
+}
+
+.swipe .down b {
+  position: relative;
+  font-weight: 400;
+  font-size: 3.4cqw;
+  color: var(--pin-number);
+  transform: rotate(var(--tilt));
+}
+
+.swipe .hint {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 68.6%;
+  translate: 0 -50%;
+  text-align: center;
+  font-size: 3.2cqw;
+  color: var(--pin-number);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.swipe .hint i {
+  font-style: normal;
+  font-size: 2.6cqw;
+  border: 1px solid var(--record);
+  border-radius: 999px;
+  padding: 0.3cqw 1.6cqw;
+  margin-left: 1.5cqw;
+}
+
+.swipe .record {
+  position: absolute;
+  left: 4cqw;
+  right: 4cqw;
+  top: 74.83%;
+  height: 5.6cqh;
+  translate: 0 -50%;
+  border-radius: 999px;
+  background: var(--record);
+  color: #fff;
+  font-size: 3.6cqw;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.swipe .finger {
+  position: absolute;
+  left: var(--x, 50%);
+  top: var(--y, 62%);
+  width: 10cqw;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: var(--touch);
+  box-shadow: 0 0 0 1.4cqw var(--touch);
+  opacity: 0;
+  transition: left 0.16s linear, top 0.16s linear, opacity 0.2s;
+}
+
+.swipe .on { opacity: 1; }
+
 /* Smaller things Kegler does, as a quiet list. */
 .more {
   display: grid;
