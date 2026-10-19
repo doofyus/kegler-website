@@ -293,9 +293,9 @@ h3 { font-size: 17px; margin: 0 0 4px; }
   position: absolute;
   left: var(--x);
   top: var(--y);
-  width: 14cqw;
+  width: 13cqw;
   /* Height given, not an aspect ratio: Safari stretches a grid by its text past the ratio. */
-  height: 14cqw;
+  height: 13cqw;
   translate: -50% -50%;
   border-radius: 50%;
   background: var(--pin-hole);
@@ -326,7 +326,7 @@ h3 { font-size: 17px; margin: 0 0 4px; }
   position: absolute;
   left: 0;
   right: 0;
-  top: 68.6%;
+  top: 61.85%;
   translate: 0 -50%;
   text-align: center;
   font-size: 3.2cqw;
@@ -346,10 +346,10 @@ h3 { font-size: 17px; margin: 0 0 4px; }
 
 .swipe .record {
   position: absolute;
-  left: 4cqw;
-  right: 4cqw;
-  top: 74.83%;
-  height: 5.6cqh;
+  left: 3.8cqw;
+  right: 3.8cqw;
+  top: 66.55%;
+  height: 5.1cqh;
   translate: 0 -50%;
   border-radius: 999px;
   background: var(--record);
@@ -367,8 +367,8 @@ h3 { font-size: 17px; margin: 0 0 4px; }
   position: absolute;
   left: 0;
   top: 0;
-  width: 13cqw;
-  height: 13cqw;
+  width: 11.5cqw;
+  height: 11.5cqw;
   border-radius: 50%;
   background: radial-gradient(circle, var(--touch) 0 60%, var(--touch-ring) 61% 100%);
   transform: translate(var(--px, 0px), var(--py, 0px)) translate(-50%, -50%);
