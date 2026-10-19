@@ -5,89 +5,125 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kegler: Bowling Score Log</title>
 <meta name="description" content="Kegler keeps your bowling games, league nights and stats on your iPhone. Five nights free, then one purchase. No subscription.">
+<meta name="color-scheme" content="light dark">
 <link rel="icon" href="favicon.png">
 <link rel="apple-touch-icon" href="icon.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main>
-  <section class="hero">
-    <img class="app-icon" src="icon.png" alt="Kegler app icon">
-    <h1>Kegler</h1>
-    <p class="lead">Your bowling, kept. Every game, every league night, and the numbers that show where your pins go.</p>
+  <a class="bar" href="./"><img src="icon.png" alt="">Kegler</a>
+
+  <header>
+    <h1>Your bowling, kept.</h1>
+    <p class="lead">Kegler is a score log for iPhone: every game, every league night, and the numbers that show where your pins go.</p>
     <span class="store">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9s-2-.9-3.3-.9C6.1 7 4.5 8 3.6 9.6c-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6s1.8-.8 3.3-.8 2 .8 3.3.8 2.2-1.3 3-2.5c1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.4zM14 5.3c.7-.9 1.2-2 1-3.3-1 .1-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.2 1.2.1 2.4-.6 3.1-1.5z"/></svg>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9s-2-.9-3.3-.9C6.1 7 4.5 8 3.6 9.6c-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6s1.8-.8 3.3-.8 2 .8 3.3.8 2.2-1.3 3-2.5c1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.4zM14 5.3c.7-.9 1.2-2 1-3.3-1 .1-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.2 1.2.1 2.4-.6 3.1-1.5z"/></svg>
       Coming soon to the App Store
     </span>
+  </header>
+
+  <div class="game" role="img" aria-label="A game of 204 on a score sheet: strike, spare, two strikes, spare, strike, spare, strike, nine, and strike, strike, eight in the tenth.">
+    <div class="sheet" aria-hidden="true">
+      <div class="frame" style="--i:0"><span class="n">1</span><span class="marks">X</span><span class="total">20</span></div>
+      <div class="frame" style="--i:1"><span class="n">2</span><span class="marks">9 /</span><span class="total">40</span></div>
+      <div class="frame" style="--i:2"><span class="n">3</span><span class="marks">X</span><span class="total">68</span></div>
+      <div class="frame" style="--i:3"><span class="n">4</span><span class="marks">X</span><span class="total">88</span></div>
+      <div class="frame" style="--i:4"><span class="n">5</span><span class="marks">8 /</span><span class="total">108</span></div>
+      <div class="frame" style="--i:5"><span class="n">6</span><span class="marks">X</span><span class="total">128</span></div>
+      <div class="frame" style="--i:6"><span class="n">7</span><span class="marks">7 /</span><span class="total">148</span></div>
+      <div class="frame" style="--i:7"><span class="n">8</span><span class="marks">X</span><span class="total">167</span></div>
+      <div class="frame" style="--i:8"><span class="n">9</span><span class="marks">9 –</span><span class="total">176</span></div>
+      <div class="frame" style="--i:9"><span class="n">10</span><span class="marks">X X 8</span><span class="total">204</span></div>
+    </div>
+    <div class="score" aria-hidden="true">204</div>
+  </div>
+
+  <div class="feature">
+    <div class="copy">
+      <h2>A ball in one tap.</h2>
+      <p>Tap how many fell between turns, or mark the pins that fell on the deck. The frames and running total fill in as you go, and any ball is fixed by tapping its frame.</p>
+    </div>
+    <picture class="phone">
+      <source srcset="images/entry-dark.jpg" media="(prefers-color-scheme: dark)">
+      <img src="images/entry-light.jpg" width="598" height="1300" alt="Entering a ball on the pin deck during a league game">
+    </picture>
+  </div>
+
+  <div class="feature flip">
+    <div class="copy">
+      <h2>Every night, summed up.</h2>
+      <p>Your series and how it compares with last week, your league average moving, and the handicap a game with the average it came from. High games are called out, and a picture of the night is ready to share with the league.</p>
+    </div>
+    <picture class="phone">
+      <source srcset="images/summary-dark.jpg" media="(prefers-color-scheme: dark)">
+      <img src="images/summary-light.jpg" width="598" height="1300" alt="A league night's summary with its series and handicap">
+    </picture>
+  </div>
+
+  <div class="feature">
+    <div class="copy">
+      <h2>Your leagues, week by week.</h2>
+      <p>Each league keeps its nights, lanes, average and next handicap, from week one to the end of the season. Tournaments too, with where you finished.</p>
+    </div>
+    <picture class="phone">
+      <source srcset="images/league-dark.jpg" media="(prefers-color-scheme: dark)">
+      <img src="images/league-light.jpg" width="598" height="1300" alt="A league's page with its average, next handicap and nights">
+    </picture>
+  </div>
+
+  <div class="feature flip">
+    <div class="copy">
+      <h2>Stats that say what to work on.</h2>
+      <p>Not just percentages: which spares cost you, how much a better 10 pin is worth a game, how your first game compares with the rest. Mark the pins, and your leaves and pocket join in.</p>
+    </div>
+    <picture class="phone">
+      <source srcset="images/stats-dark.jpg" media="(prefers-color-scheme: dark)">
+      <img src="images/stats-light.jpg" width="598" height="1300" alt="Stats with an average chart and what to work on">
+    </picture>
+  </div>
+
+  <section class="block">
+    <h2>Also in Kegler</h2>
+    <div class="more">
+      <div>
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="10" cy="8.5" r="1" fill="currentColor"/><circle cx="13.5" cy="8" r="1" fill="currentColor"/><circle cx="12" cy="11" r="1" fill="currentColor"/></svg></span>
+        <div><h3>Your arsenal</h3><p>Note which ball you threw and see how each one strikes, in league and in practice.</p></div>
+      </div>
+      <div>
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M9 7h6M9 11h4"/></svg></span>
+        <div><h3>On your Lock Screen</h3><p>During a league night, your game and series stay on the Lock Screen and in the Dynamic Island.</p></div>
+      </div>
+      <div>
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg></span>
+        <div><h3>Bring your games</h3><p>Import from PinPal, LeagueSecretary or a spreadsheet, and export every game as CSV.</p></div>
+      </div>
+      <div>
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .5-8 6 6 0 0 0-11.5 1A3.5 3.5 0 0 0 7 18z"/></svg></span>
+        <div><h3>On all your devices</h3><p>Your games sync through your own iCloud, with no account to make.</p></div>
+      </div>
+      <div>
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 5h16l-6 7v6l-4 2v-8z"/></svg></span>
+        <div><h3>Any slice of your bowling</h3><p>Look at one league, one center, one pair of lanes or one ball at a time.</p></div>
+      </div>
+      <div>
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+        <div><h3>Knows your center</h3><p>Picks the center you're at when you start, and remembers your notes from last time there.</p></div>
+      </div>
+    </div>
   </section>
 
-  <div class="phones">
-    <figure><img src="images/entry.jpg" width="598" height="1300" alt="Entering a ball on the pin deck"><figcaption>A ball in one tap</figcaption></figure>
-    <figure><img src="images/summary.jpg" width="598" height="1300" alt="A league night's summary"><figcaption>Every night summed up</figcaption></figure>
-    <figure><img src="images/league.jpg" width="598" height="1300" alt="A league's page with its average and handicap"><figcaption>Your leagues, week by week</figcaption></figure>
-    <figure><img src="images/stats.jpg" width="598" height="1300" alt="Stats with what to work on"><figcaption>Where your pins go</figcaption></figure>
-  </div>
+  <section class="block">
+    <div class="price">
+      <div class="figure">5 nights free</div>
+      <p>Then <strong>one purchase</strong> unlocks Kegler for good. No subscription, Family Sharing included, and your games and stats stay yours either way.</p>
+    </div>
+  </section>
 
-  <h2>Built for bowling night</h2>
-  <div class="features">
-    <div class="card">
-      <h3><span class="icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="5" r="2.4"/><circle cx="12" cy="5" r="2.4"/><circle cx="19" cy="5" r="2.4"/><circle cx="8.5" cy="11.5" r="2.4"/><circle cx="15.5" cy="11.5" r="2.4"/><circle cx="12" cy="18" r="2.4"/></svg></span>Quick between turns</h3>
-      <p>Tap how many fell, or mark the pins that fell on the deck. The frames and running total fill in as you go, and any ball is fixed by tapping its frame.</p>
-    </div>
-    <div class="card">
-      <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>League nights</h3>
-      <p>Your series, handicap and league average, the lanes you were on, and how tonight compares with last week. Tournaments too, with where you finished.</p>
-    </div>
-    <div class="card">
-      <h3><span class="icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="3" y="12" width="4" height="9" rx="1.5"/><rect x="10" y="7" width="4" height="14" rx="1.5"/><rect x="17" y="3" width="4" height="18" rx="1.5"/></svg></span>Stats that point somewhere</h3>
-      <p>Not just percentages: which spares cost you, how much a better 10 pin is worth a game, and, when you mark the pins, your leaves and how often you find the pocket.</p>
-    </div>
-    <div class="card">
-      <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.4 6.8 19.2l1-5.9-4.3-4.1 5.9-.8z"/></svg></span>Nights worth remembering</h3>
-      <p>A summary after every night, your high games and series called out, and a picture of your series to share with the league.</p>
-    </div>
-    <div class="card">
-      <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="10" cy="8.5" r="1" fill="currentColor"/><circle cx="13.5" cy="8" r="1" fill="currentColor"/><circle cx="12" cy="11" r="1" fill="currentColor"/></svg></span>Your arsenal</h3>
-      <p>Note which ball you threw and see how each one strikes, on league nights and in practice.</p>
-    </div>
-    <div class="card">
-      <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M9 7h6M9 11h4"/></svg></span>On your Lock Screen</h3>
-      <p>During a league night, your game and series stay on the Lock Screen and in the Dynamic Island.</p>
-    </div>
-    <div class="card">
-      <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg></span>Bring your games</h3>
-      <p>Import from PinPal, LeagueSecretary or a spreadsheet, and export every game as CSV whenever you like.</p>
-    </div>
-    <div class="card">
-      <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .5-8 6 6 0 0 0-11.5 1A3.5 3.5 0 0 0 7 18z"/></svg></span>On all your devices</h3>
-      <p>Your games sync through your own iCloud, with no account to make.</p>
-    </div>
-  </div>
-
-  <div class="card price">
-    <p class="overline">Price</p>
-    <div class="figure">5 nights free</div>
-    <p>Then one purchase unlocks Kegler for good. No subscription, Family Sharing included, and your games and stats stay yours either way.</p>
-  </div>
-
-  <h2>Your games stay yours</h2>
-  <div class="tiles">
-    <div class="tile">
-      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span>
-      <strong>No account</strong>
-      <span>Open it and bowl.</span>
-    </div>
-    <div class="tile">
-      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><path d="M3 3l18 18"/></svg></span>
-      <strong>No ads or tracking</strong>
-      <span>Nothing watches you bowl.</span>
-    </div>
-    <div class="tile">
-      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span>
-      <strong>Private</strong>
-      <span>On your devices and your iCloud. <a href="privacy/">Privacy Policy</a></span>
-    </div>
-  </div>
+  <section class="block">
+    <h2>Your games stay yours.</h2>
+    <p class="lead">No account, no ads and no tracking. Your games live on your devices and in your own iCloud, and the developer never sees them. <a href="privacy/">Privacy Policy</a></p>
+  </section>
 
   <footer>
     <a href="support/">Support</a>
