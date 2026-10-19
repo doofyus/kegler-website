@@ -47,7 +47,11 @@ main {
 .narrow h2 { font-size: 24px; margin-top: 44px; }
 
 a { color: var(--accent); text-underline-offset: 3px; }
-a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+/* A question's whole card shows keyboard focus, in its own rounded shape. */
+summary:focus { outline: none; }
+details:has(summary:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 /* The top bar: the icon and the name, back to the home page. */
 .bar {
@@ -453,7 +457,8 @@ summary {
 summary::-webkit-details-marker { display: none; }
 summary::after { content: "›"; color: var(--muted); transition: transform 0.2s; }
 details[open] summary::after { transform: rotate(90deg); }
-details p { margin: 0 0 16px; color: var(--muted); }
+details[open] summary { padding-bottom: 8px; }
+details p { margin: 0 0 20px; color: var(--muted); }
 
 footer {
   margin-top: 72px;
