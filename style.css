@@ -260,8 +260,8 @@ h3 { font-size: 17px; margin: 0 0 4px; }
   --pin-hole: #F7F1E8;
   --pin-down: #DCCDB8;
   --pin-number: #9C8B78;
-  --touch: rgba(58, 46, 36, 0.2);
-  --touch-ring: rgba(58, 46, 36, 0.1);
+  --touch: rgba(58, 46, 36, 0.3);
+  --touch-ring: rgba(58, 46, 36, 0.14);
   --record: #985030;
   position: absolute;
   inset: var(--frame);
@@ -279,8 +279,8 @@ h3 { font-size: 17px; margin: 0 0 4px; }
     --pin-hole: #1E1914;
     --pin-down: #3A2F25;
     --pin-number: #8A7864;
-    --touch: rgba(255, 248, 238, 0.28);
-    --touch-ring: rgba(255, 248, 238, 0.12);
+    --touch: rgba(255, 248, 238, 0.45);
+    --touch-ring: rgba(255, 248, 238, 0.2);
     --record: #B05C3C;
   }
 }
@@ -294,7 +294,8 @@ h3 { font-size: 17px; margin: 0 0 4px; }
   left: var(--x);
   top: var(--y);
   width: 14cqw;
-  aspect-ratio: 1;
+  /* Height given, not an aspect ratio: Safari stretches a grid by its text past the ratio. */
+  height: 14cqw;
   translate: -50% -50%;
   border-radius: 50%;
   background: var(--pin-hole);
@@ -367,7 +368,7 @@ h3 { font-size: 17px; margin: 0 0 4px; }
   left: 0;
   top: 0;
   width: 13cqw;
-  aspect-ratio: 1;
+  height: 13cqw;
   border-radius: 50%;
   background: radial-gradient(circle, var(--touch) 0 60%, var(--touch-ring) 61% 100%);
   transform: translate(var(--px, 0px), var(--py, 0px)) translate(-50%, -50%);
