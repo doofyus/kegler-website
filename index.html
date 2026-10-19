@@ -9,6 +9,7 @@
 <link rel="icon" href="favicon.png">
 <link rel="apple-touch-icon" href="icon.png">
 <link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 <main>
@@ -159,6 +160,22 @@
 
     score.textContent = '0';
     totals.forEach((total, index) => setTimeout(() => countTo(total), (index * 0.16 + 0.42) * 1000));
+  })();
+
+  // Features and the smaller list come in once, as they scroll into view.
+  (() => {
+    document.querySelectorAll('.more .icon').forEach((icon, index) => icon.style.setProperty('--i', index));
+
+    const seen = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+
+        entry.target.classList.add('in');
+        seen.unobserve(entry.target);
+      }
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.feature, .more').forEach(element => seen.observe(element));
   })();
 </script>
 </body>
