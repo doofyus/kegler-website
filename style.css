@@ -179,7 +179,13 @@ h3 { font-size: 17px; margin: 0 0 4px; }
   grid-template-columns: 1fr 260px;
   gap: 56px;
   align-items: center;
-  padding: 72px 0 0;
+  padding: 56px 0 0;
+}
+
+/* The phones take turns on each side, so on a wide screen each row tucks up under the words of
+   the one before, like steps. */
+@media (min-width: 721px) {
+  .feature + .feature { margin-top: -150px; }
 }
 
 .feature.flip { grid-template-columns: 260px 1fr; }
@@ -462,7 +468,7 @@ footer {
 footer .muted { color: var(--muted); margin-left: auto; }
 
 @media (max-width: 720px) {
-  .feature, .feature.flip { grid-template-columns: 1fr; gap: 28px; padding-top: 64px; }
+  .feature, .feature.flip { grid-template-columns: 1fr; gap: 24px; padding-top: 48px; }
   .feature.flip .copy { order: 0; }
   .phone { --w: min(260px, 72vw); margin: 0 auto; }
   .game { flex-direction: column-reverse; align-items: stretch; gap: 12px; }
