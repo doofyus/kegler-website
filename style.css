@@ -131,7 +131,9 @@ h3 { font-size: 17px; margin: 0 0 4px; }
   line-height: 0.8;
   letter-spacing: -0.03em;
   font-variant-numeric: tabular-nums;
-  min-width: 2.1ch;
+  /* Three digits wide from the first 0, so the sheet beside it never moves as the score grows. */
+  width: 3ch;
+  flex: none;
   text-align: right;
 }
 
@@ -184,20 +186,66 @@ h3 { font-size: 17px; margin: 0 0 4px; }
 .feature.flip .copy { order: 2; }
 .feature .copy p { color: var(--muted); margin: 0; max-width: 30em; }
 
+/* The app's screens in an iPhone 16 Pro: a titanium edge, a thin black bezel, the screen's own
+   rounded corners, the Dynamic Island and the side buttons, all measured from the phone's width. */
+.phone {
+  --w: 260px;
+  --frame: calc(var(--w) * 0.034);
+  --screen: calc(var(--w) - 2 * var(--frame));
+  --corner: calc(var(--screen) * 0.137);
+  --titanium: #8F8A83;
+  position: relative;
+  display: block;
+  width: var(--w);
+  padding: var(--frame);
+  border-radius: calc(var(--corner) + var(--frame));
+  background: #050505;
+  box-shadow:
+    0 0 0 1.5px var(--titanium),
+    0 0 0 2.5px #4E4A45,
+    0 30px 60px -26px rgba(43, 35, 28, 0.6);
+}
+
 .phone img {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 34px;
-  border: 7px solid var(--bezel);
-  box-shadow: 0 24px 48px -20px rgba(43, 35, 28, 0.45);
+  border-radius: var(--corner);
+}
+
+/* The Dynamic Island, in the middle of the screenshot's status bar. */
+.phone::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: calc(var(--frame) + var(--screen) * 0.027);
+  width: calc(var(--screen) * 0.313);
+  height: calc(var(--screen) * 0.092);
+  translate: -50% 0;
+  border-radius: 999px;
+  background: #000;
+  z-index: 1;
+}
+
+/* The side buttons: the action button and volume on the left, the side button on the right. */
+.phone::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: 17%;
+  width: 3px;
+  height: 4%;
+  border-radius: 2px 0 0 2px;
+  background: var(--titanium);
+  box-shadow:
+    0 calc(var(--w) * 0.16) 0 0 var(--titanium),
+    0 calc(var(--w) * 0.29) 0 0 var(--titanium),
+    calc(var(--w) + 5px) calc(var(--w) * 0.2) 0 0 var(--titanium);
 }
 
 /* On the entry screen, a finger sweeps the pins that fell, the way the app is used: each pin it
    crosses goes down, the 7-10 is left, and the record button counts them. Placed in parts of the
    screenshot, so it fits at any size. */
-.phone { position: relative; display: block; }
-
 .swipe {
   --pin-hole: #F7F1E8;
   --pin-down: #DCCDB8;
@@ -205,8 +253,8 @@ h3 { font-size: 17px; margin: 0 0 4px; }
   --touch: rgba(58, 46, 36, 0.2);
   --record: #985030;
   position: absolute;
-  inset: 7px;
-  border-radius: 27px;
+  inset: var(--frame);
+  border-radius: var(--corner);
   overflow: hidden;
   pointer-events: none;
   container-type: size;
@@ -416,7 +464,7 @@ footer .muted { color: var(--muted); margin-left: auto; }
 @media (max-width: 720px) {
   .feature, .feature.flip { grid-template-columns: 1fr; gap: 28px; padding-top: 64px; }
   .feature.flip .copy { order: 0; }
-  .phone { width: min(260px, 72vw); margin: 0 auto; }
+  .phone { --w: min(260px, 72vw); margin: 0 auto; }
   .game { flex-direction: column-reverse; align-items: stretch; gap: 12px; }
   .score { text-align: left; }
   .price { grid-template-columns: 1fr; }
