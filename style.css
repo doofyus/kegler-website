@@ -458,7 +458,8 @@ summary::-webkit-details-marker { display: none; }
 summary::after { content: "›"; color: var(--muted); transition: transform 0.2s; }
 details[open] summary::after { transform: rotate(90deg); }
 details[open] summary { padding-bottom: 8px; }
-details p { margin: 0 0 20px; color: var(--muted); }
+/* Padding, not margin: a margin on the last line would slip out under the card. */
+details p { margin: 0; padding-bottom: 16px; color: var(--muted); }
 
 footer {
   margin-top: 72px;
