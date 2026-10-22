@@ -27,7 +27,9 @@ style.css           every page's styles, light and dark
 images/             the app's screens, a light and a dark version of each
 icon.png            the app icon (also the touch icon)
 favicon.png
-og.png              the link preview image (1200×630)
+og.png              the home page's link preview (1200×630)
+og-support.png      the support page's link preview
+og-privacy.png      the privacy policy's link preview
 CNAME               the custom domain for GitHub Pages
 .nojekyll           serve the files as they are, without Jekyll
 ```
